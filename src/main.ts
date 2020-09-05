@@ -16,16 +16,18 @@
 
 import LiTKansaiLogo from './components/LiTKansaiLogo.vue'
 import LiTKansaiSplash from './components/LiTKansaiSplash.vue'
-import { VueConstructor } from 'vue/types/umd'
 
-export const VueLiTKansai = {
-  install(vue: VueConstructor, options: any){
-    const components = {
-      LiTKansaiLogo,
-      LiTKansaiSplash,
-    }
-    for(const [name,c] of Object.entries(components)){
-      vue.component(name,c)
-    }
-  },
+import Vue from "vue";
+
+function install(vue: typeof Vue, options?: any) {
+  const components = {
+    LiTKansaiLogo,
+    LiTKansaiSplash,
+  }
+  for(const [name,c] of Object.entries(components)){
+    vue.component(name,c)
+  }
 }
+
+export default { install }
+export { LiTKansaiLogo, LiTKansaiSplash }
